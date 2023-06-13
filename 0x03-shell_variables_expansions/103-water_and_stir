@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ibase=water;obase=bestchol;${WATER}+${STIR}" | bc
+printf "%s\n" "$(( $(echo $WATER | tr -dc '0-9') + $(echo $STIR | tr -dc '0-9') ))" | awk '{ printf "%d\n", $0; exit }'
